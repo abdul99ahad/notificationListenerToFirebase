@@ -93,6 +93,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.github.chagall.notificationlistenerexample");
         registerReceiver(notificationChangeBroadcastReceiver,intentFilter);
+        System.out.println("onCLick");
+        System.out.println(registerReceiver(notificationChangeBroadcastReceiver,intentFilter));
 //        unregisterReceiver(notificationChangeBroadcastReceiver);
 //        Intent clickIntent = new Intent(this,NotificationListenerExampleService.class);
 //        clickIntent.putExtra("Clicked", "1");
