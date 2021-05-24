@@ -9,13 +9,21 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.provider.Settings;
 import android.service.notification.StatusBarNotification;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.app.NotificationManager;
+
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -46,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView interceptedNotificationImageView;
     private NotificationChangeBroadcastReceiver notificationChangeBroadcastReceiver;
     private AlertDialog enableNotificationListenerAlertDialog;
+
+    private DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,9 +72,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         // Finally we register a receiver to tell the MainActivity when a notification has been received
-
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(this);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
     }
 
     @Override
@@ -89,6 +100,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //nls.callIntent();
         //System.out.println(nls.getNotifications());
         // System.out.println(nls.getActiveNotifications());
+        //FirebaseDatabase database = FirebaseDatabase.getInstance();
+        //DatabaseReference myRef = mDatabase.getReference("message");
+
+        //myRef.setValue("Hello, Click World!");
+        //mDatabase.child("users").setValue();
     }
 
     /**
@@ -157,6 +173,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ArrayList<String> receivedNotification = intent.getStringArrayListExtra("Notification");
             System.out.println("Received Intent: Main Activity.");
             System.out.println(receivedNotification);
+            mDatabase.child("notifications").child("package_name").setValue(receivedNotification.get(0));
+            mDatabase.child("notifications").child("notification_name").setValue(receivedNotification.get(1));
+            //mDatabase.child("users").setValue(receivedNotification);
             //changeInterceptedNotificationImage(receivedNotificationCode);
         }
     }

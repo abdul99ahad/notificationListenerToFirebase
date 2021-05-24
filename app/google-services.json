@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "489976206937",
+    "firebase_url": "https://notification-listener-firebase-default-rtdb.firebaseio.com",
+    "project_id": "notification-listener-firebase",
+    "storage_bucket": "notification-listener-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489976206937:android:c9d53d2c44086abc5c4348",
+        "android_client_info": {
+          "package_name": "com.github.chagall.notificationlistenerexample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489976206937-7gvnirsr5qhndtvppoac0d3bf9suhnp2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBd7vHKZc3kjlSHgMUpaqRL8Mlt_NIdfdc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489976206937-7gvnirsr5qhndtvppoac0d3bf9suhnp2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
